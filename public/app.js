@@ -55,7 +55,6 @@ var populateSelector = function(beers){
     var beerImage = document.getElementById('beer-image');
     beerImage.src = selectedBeer.image_url;
 
-    var ingredients = document.getElementById('beer-ingredients');
 
     var maltIngredients = document.getElementById('malt-ingredients');
     maltIngredients.innerText = ""
@@ -73,12 +72,11 @@ var populateSelector = function(beers){
     }
     var yeastIngredients = document.getElementById('yeast-ingredients');
     yeastIngredients.innerText = selectedBeer.ingredients.yeast
-    
 
+    var jsonString = JSON.stringify(selectedBeer);
+    localStorage.setItem('selectedBeer', jsonString);
 
   })
-
-
 
 
 }
@@ -88,6 +86,33 @@ var app = function(){
   var url = "https://api.punkapi.com/v2/beers";
   makeRequest(url, requestComplete)
 
+  var jsonString = localStorage.getItem('selectedBeer');
+  var savedBeer = JSON.parse(jsonString);
+
+
+  var beerName = document.getElementById('beer-name');
+  beerName.innerText = savedBeer.name;
+  var beerImage = document.getElementById('beer-image');
+  beerImage.src = savedBeer.image_url;
+
+  var maltIngredients = document.getElementById('malt-ingredients');
+  maltIngredients.innerText = ""
+  for(var malt of savedBeer.ingredients.malt){
+    var ing = document.createElement('li')
+    ing.innerText = `${malt.name} ${malt.amount.value} ${malt.amount.unit}`;
+    maltIngredients.appendChild(ing)
+  }
+  var hopsIngredients = document.getElementById('hops-ingredients');
+  hopsIngredients.innerText = ""
+  for(var hop of savedBeer.ingredients.hops){
+    var ing = document.createElement('li')
+    ing.innerText = `${hop.name} ${hop.amount.value} ${hop.amount.unit}`;
+    hopsIngredients.appendChild(ing)
+  }
+  var yeastIngredients = document.getElementById('yeast-ingredients');
+  yeastIngredients.innerText = savedBeer.ingredients.yeast
 }
+
+
 
 window.addEventListener('load', app);
