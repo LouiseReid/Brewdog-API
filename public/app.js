@@ -9,8 +9,8 @@ var requestComplete = function(){
   if(this.status !== 200) return;
   var jsonString = this.responseText;
   var beers = JSON.parse(jsonString);
-  populateList(beers)
-
+  // populateList(beers)
+  populateSelector(beers)
 };
 
 var populateList = function(beers){
@@ -29,15 +29,23 @@ var populateList = function(beers){
       maltIngredients.appendChild(ing)
     }
 
-
-    console.log(beer.ingredients.malt[0].name);
-
-
     ul.appendChild(beerName)
     beerImageLi.appendChild(beerImage);
     ul.appendChild(beerImageLi)
     ul.appendChild(maltIngredients)
 
+  }
+}
+
+var populateSelector = function(beers){
+  var beersList = document.getElementById('beer-dropdown');
+
+  for(var i = 0; i < beers.length; i++){
+    var beer = beers[i];
+    var option = document.createElement('option');
+    option.innerText = beer.name;
+    option.value = i;
+    beersList.appendChild(option)
   }
 }
 
