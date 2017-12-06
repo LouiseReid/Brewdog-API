@@ -54,12 +54,28 @@ var populateSelector = function(beers){
     beerName.innerText = selectedBeer.name;
     var beerImage = document.getElementById('beer-image');
     beerImage.src = selectedBeer.image_url;
-    var maltIngredients = document.getElementById('beer-ingredients');
-    for(var malt of beer.ingredients.malt){
+
+    var ingredients = document.getElementById('beer-ingredients');
+
+    var maltIngredients = document.getElementById('malt-ingredients');
+    maltIngredients.innerText = ""
+    for(var malt of selectedBeer.ingredients.malt){
       var ing = document.createElement('li')
-      ing.innerText = malt.name;
+      ing.innerText = `${malt.name} ${malt.amount.value} ${malt.amount.unit}`;
       maltIngredients.appendChild(ing)
     }
+    var hopsIngredients = document.getElementById('hops-ingredients');
+    hopsIngredients.innerText = ""
+    for(var hop of selectedBeer.ingredients.hops){
+      var ing = document.createElement('li')
+      ing.innerText = `${hop.name} ${hop.amount.value} ${hop.amount.unit}`;
+      hopsIngredients.appendChild(ing)
+    }
+    var yeastIngredients = document.getElementById('yeast-ingredients');
+    yeastIngredients.innerText = selectedBeer.ingredients.yeast
+    
+
+
   })
 
 
