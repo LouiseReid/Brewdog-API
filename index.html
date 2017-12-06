@@ -3,29 +3,36 @@
   <head>
     <title>BrewDog Beers</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Tenali+Ramakrishna" rel="stylesheet">
     <script src='app.js'></script>
   </head>
   <body>
     <main>
-      <select id="beer-dropdown">
-      </select>
-      <div id="beer-info">
+      <section id="select-beer">
+        <h2>What ye havin'?</h2>
+        <select id="beer-dropdown"></select>
+      </section>
+
+      <section id="beer-info">
         <ul>
           <li id="beer-name"></li>
-          <li> <img id="beer-image"></li>
-          <div>Malt Ingredients:
+          <div><h3>Malt Ingredients:</h3>
             <li id="malt-ingredients"></li>
           </div>
           <br>
-          <div>Hops Ingredients:
+          <div><h3>Hops Ingredients:</h3>
             <li id="hops-ingredients"></li>
           </div>
           <br>
-          <div>Yeast Ingredients:
+          <div><h3>Yeast Ingredients:</h3>
             <li id="yeast-ingredients"></li>
           </div>
         </ul>
-      </div>
+      </section>
+        <section id=image-container>
+          <img id="beer-image">
+        </section>
+
 
     <!-- <div id="beers">
         <ul id="beer-list">

@@ -1,20 +1,53 @@
-main{
-  width: 300px;
-  margin: 0 auto;
+body {
+  background-image: url('background.jpg');
+
 }
 
-input{
-  padding: 10px;
-  border-radius: 5px;
-  width: 400px;
-  font-size: 22px;
-  margin: 10px;
+main{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: 'Tenali Ramakrishna', sans-serif;
 }
+
 
 .beers{
   padding: 5px;
 }
 
+#image-container {
+  width: 25%;
+
+}
+
+#beer-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#beer-info {
+  width: 25%;
+  font-size: 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#select-beer {
+  font-size: 30px;
+  width: 25%;
+  margin-left: 200px;
+  
+}
+
 img {
-  height: 100px;
+  height: 500px;
+  margin-left: 200px;
+}
+
+li {
+  list-style: none;
+}
+
+select {
+  font-size: 20px;
 }
