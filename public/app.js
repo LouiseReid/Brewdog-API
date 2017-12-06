@@ -47,6 +47,24 @@ var populateSelector = function(beers){
     option.value = i;
     beersList.appendChild(option)
   }
+
+  beersList.addEventListener('change', function(){
+    var selectedBeer = beers[this.value];
+    var beerName = document.getElementById('beer-name');
+    beerName.innerText = selectedBeer.name;
+    var beerImage = document.getElementById('beer-image');
+    beerImage.src = selectedBeer.image_url;
+    var maltIngredients = document.getElementById('beer-ingredients');
+    for(var malt of beer.ingredients.malt){
+      var ing = document.createElement('li')
+      ing.innerText = malt.name;
+      maltIngredients.appendChild(ing)
+    }
+  })
+
+
+
+
 }
 
 
