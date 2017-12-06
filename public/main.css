@@ -26,17 +26,19 @@ main{
 }
 
 #beer-info {
-  width: 25%;
-  font-size: 20px;
-  text-align: center;
+  width: 35%;
+  font-size: 25px;
+  text-align: justify;
   background: rgba(255, 255, 255, 0.2);
+  margin-right: -100px;
 }
 
 #select-beer {
   font-size: 30px;
   width: 25%;
-  margin-left: 200px;
-  
+  margin-left: 50px;
+  margin-right: 50px;
+
 }
 
 img {
